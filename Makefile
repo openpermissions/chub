@@ -87,7 +87,7 @@ sphinx:
 		-o docs $(SOURCE_DIR)
 
 html: sphinx
-	cd docs && PYTHONPATH=$(SERVICEDIR) make html BUILDDIR=$(BUILD_SOURCE_DOC_DIR)
+	cd docs && PYTHONPATH=$(SERVICEDIR) make html BUILDDIR=$(IN_SOURCE_DOC_DIR)
 	
 	
 	
