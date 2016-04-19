@@ -25,4 +25,19 @@ setup(name='chub',
       author_email='support-copyrighthub@cde.catapult.org.uk',
       url='https://github.com/openpermissions/chub',
       packages=['chub'],
-      install_requires=['tornado'])
+      install_requires=['tornado'],
+      license='Apache 2.0',
+      classifiers=(
+            'Development Status :: 5 - Production/Stable',
+            'Intended Audience :: Developers',
+            'Natural Language :: English',
+            'License :: OSI Approved :: Apache Software License',
+            'Programming Language :: Python',
+            'Programming Language :: Python :: 2.7',
+            'Programming Language :: Python :: Implementation :: CPython',
+      ),
+      include_package_data=True,
+      package_data={
+            '': [ 'LICENSE' ]
+      }
+      )
