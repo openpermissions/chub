@@ -78,19 +78,18 @@ sphinx:
 	$(SPHINXAPIDOC) \
 		-s rst \
 		--full \
-		-f \
 		-V $(SERVICE_VERSION) \
 		-R $(SERVICE_RELEASE) \
 		-H $(SOURCE_DIR) \
 		-A "Open Permissions Platform Coalition" \
-		-A "Open Permissions Platform Coalition" \
-		-o docs $(SOURCE_DIR)
+		-o $(SPHINX_DIR) $(SOURCE_DIR)
+	patch $(SPHINX_DIR)/index.rst docs/index.rst.patch
 
 html: sphinx
-	cd docs && PYTHONPATH=$(SERVICEDIR) make html BUILDDIR=$(IN_SOURCE_DOC_DIR)
-	
-	
-	
+	cd $(SPHINX_DIR) && PYTHONPATH=$(SERVICEDIR) make html BUILDDIR=$(IN_SOURCE_DOC_DIR)
+
+
+
 # Dependencies of .html document files created from files in the 'doc directory'
 $(SERVICE_DOC_DIR)/%.html : $(DOC_DIR)/%.md
 	mkdir -p $(dir $@)
