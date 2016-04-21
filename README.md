@@ -72,5 +72,6 @@ Usage
 Check the examples directory for more.
 
 Documentation
+-------------
 
 Documentation generated from the source can be found at http://chub.readthedocs.org/en/stable/
