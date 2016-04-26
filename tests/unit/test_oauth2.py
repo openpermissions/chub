@@ -99,7 +99,7 @@ class TestGetToken(AsyncTestCase):
     def setUp(self):
         super(TestGetToken, self).setUp()
         self.API = self.api_patch.start()
-        self.API().authentication.token.post.side_effect = self.post
+        self.API().auth.token.post.side_effect = self.post
         self.API.reset_mock()
         oauth2.get_token.reset_cache()
 
@@ -123,7 +123,7 @@ class TestGetToken(AsyncTestCase):
             'https://localhost:8007',
             auth_username='4225f4774d6874a68565a04130001144',
             auth_password='FMjU7vNIay5HGNABQVTTghOfEJqbet')
-        self.API().authentication.token.post.assert_called_once_with(
+        self.API().auth.token.post.assert_called_once_with(
             body=urllib.urlencode({'grant_type': oauth2.CLIENT_CREDENTIALS}),
             request_timeout=60,
             headers={'Content-Type': 'application/x-www-form-urlencoded',
@@ -139,7 +139,7 @@ class TestGetToken(AsyncTestCase):
 
         assert token == self.token
 
-        body = self.API().authentication.token.post.call_args[1]['body']
+        body = self.API().auth.token.post.call_args[1]['body']
         assert urlparse.parse_qs(body) == {
             'grant_type': [oauth2.CLIENT_CREDENTIALS],
             'scope': ['read write[1]']}
@@ -153,7 +153,7 @@ class TestGetToken(AsyncTestCase):
 
         assert token == self.token
 
-        body = self.API().authentication.token.post.call_args[1]['body']
+        body = self.API().auth.token.post.call_args[1]['body']
         assert urlparse.parse_qs(body) == {
             'grant_type': [oauth2.CLIENT_CREDENTIALS],
             'scope': ['read']}
@@ -167,7 +167,7 @@ class TestGetToken(AsyncTestCase):
 
         assert token == self.token
 
-        body = self.API().authentication.token.post.call_args[1]['body']
+        body = self.API().auth.token.post.call_args[1]['body']
         assert urlparse.parse_qs(body) == {'grant_type': [oauth2.JWT_BEARER],
                                            'assertion': ['the client jwt']}
 
@@ -182,7 +182,7 @@ class TestGetToken(AsyncTestCase):
 
         assert token == self.token
 
-        body = self.API().authentication.token.post.call_args[1]['body']
+        body = self.API().auth.token.post.call_args[1]['body']
         assert urlparse.parse_qs(body) == {'grant_type': [oauth2.JWT_BEARER],
                                            'assertion': ['the client jwt'],
                                            'scope': ['read write[1]']}
@@ -196,7 +196,7 @@ class TestTokenCache(AsyncTestCase):
     def setUp(self):
         super(TestTokenCache, self).setUp()
         self.API = self.api_patch.start()
-        self.API().authentication.token.post.side_effect = self.post
+        self.API().auth.token.post.side_effect = self.post
         self.API.reset_mock()
         self.request_count = 0
         self.expiry = (calendar.timegm(datetime.utcnow().timetuple()) +
