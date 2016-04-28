@@ -236,7 +236,7 @@ class RequestToken(object):
                   auth_username=client_id,
                   auth_password=client_secret,
                   **kwargs)
-        endpoint = api.authentication.token
+        endpoint = api.auth.token
 
         response = yield endpoint.post(body=urllib.urlencode(parameters),
                                        request_timeout=60,
