@@ -1,4 +1,4 @@
-Open Permissions Platform Python Client
+Open Permissions Platform - Python Client
 ===========================
 
 An asynchronous client api to interface with the Open Permissions Platform RESTful services
