@@ -12,7 +12,7 @@
 from chub import API
 
 
-chub = API('http://private-49fdb-onboardingapiaryservice.apiary-mock.com/v1',
+chub = API('https://on-stage.copyrighthub.org/v1',
            async=False)
 print chub.onboarding.get()
 print chub.onboarding.capabilities.get()

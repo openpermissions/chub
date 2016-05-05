@@ -14,8 +14,8 @@ from tornado.ioloop import IOLoop
 from tornado.gen import coroutine
 
 
-onboarding = API('http://private-49fdb-onboardingapiaryservice.apiary-mock.com/v1/onboarding')
-accounts = API('http://private-2a0b7-copyrighthubaccountsservice.apiary-mock.com/v1/accounts')
+onboarding = API('https://on-stage.copyrighthub.org/v1/onboarding')
+accounts = API('https://acc-stage.copyrighthub.org/v1/accounts')
 
 
 def async_call_callback_style():

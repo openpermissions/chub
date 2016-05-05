@@ -10,7 +10,7 @@ Usage
     from tornado.ioloop import IOLoop
 
     # synchronous client post request
-    registration = API('http://private-2a0b7-copyrighthubaccountsservice.apiary-mock.com/v1/accounts',
+    registration = API('https://acc-stage.copyrighthub.org/v1/accounts',
                        async=False)
     user = registration.users.post(first_name='john',
                                    last_name='bull',
@@ -19,12 +19,12 @@ Usage
                                    password='3832j942cu2d')
 
     # synchronous client get request
-    api = API('http://private-356ff-copyrighthubrepositoryservice1.apiary-mock.com/v1/repository',
+    api = API('https://repo-stage.copyrighthub.org/v1/repository',
                      async = False)
     offer = api.offers['OFFER-01'].get()
 
     # asynchronous client post request
-    registration = API('http://private-2a0b7-copyrighthubaccountsservice.apiary-mock.com/v1/accounts',
+    registration = API('https://acc-stage.copyrighthub.org/v1/accounts',
                        async=True)
 
 
@@ -53,7 +53,7 @@ Usage
 
 
     # asynchronous client get request
-    api = API('http://private-356ff-copyrighthubrepositoryservice1.apiary-mock.com/v1/repository',
+    api = API('https://repo-stage.copyrighthub.org/v1/repository',
               async = True)
 
     @coroutine
