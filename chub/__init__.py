@@ -12,4 +12,4 @@ from .api import API, Resource
 from .handlers import sync_fetch, async_fetch
 from . import oauth2
 
-__version__ = '1.0.4'
+__version__ = '1.0.5'
