@@ -6,7 +6,7 @@
 # Unless required by applicable law or agreed to in writing, software distributed under the License is
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
-# 
+#
 
 from setuptools import setup
 import re
@@ -18,7 +18,7 @@ with open('chub/__init__.py', 'r') as fd:
 if not version:
     raise RuntimeError('Cannot find version information')
 
-setup(name='chub',
+setup(name='opp-chub',
       version=version,
       description='Asynchronous Python client for the Open Permissions Platform Coalition REST Services',
       author='Open Permissions Platform Coalition',
