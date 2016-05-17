@@ -6,7 +6,7 @@
 # Unless required by applicable law or agreed to in writing, software distributed under the License is
 # distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
-# 
+#
 
 """
 this module has some handler utilities for HTTP request and response
@@ -140,15 +140,9 @@ def make_fetch_func(base_url, async, **kwargs):
     1) async
     2) ssl
     """
-    if base_url.startswith('https://'):
-        force_instance = True
-    else:
-        force_instance = False
     if async:
-        client = AsyncHTTPClient(force_instance=force_instance,
-                                 defaults=kwargs)
+        client = AsyncHTTPClient(force_instance=True, defaults=kwargs)
         return partial(async_fetch, httpclient=client)
     else:
-        client = HTTPClient(force_instance=force_instance,
-                            defaults=kwargs)
+        client = HTTPClient(force_instance=True, defaults=kwargs)
         return partial(sync_fetch, httpclient=client)
